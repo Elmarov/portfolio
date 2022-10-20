@@ -9,7 +9,23 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+      .section-block
+        section.section-one 
+          header.header
+            .header__logo 
+              .logo BA
+
+            nav.nav 
+              -var menu = ["Главная","Обо мне","Навыки","Работы","Отзывы","Связатся"];
+              ul.nav__list 
+                each item in menu
+                  li.nav__item 
+                    a.nav__list(href="#") #{item}
+
+            .header-social 
+              -var icons = ["insta","vk","github"];
+              ul.header-socials__list 
+                each item in icons
+                  li.header-social__item 
+                    a.header-social__link
+                      +icon(item,"social__icon")
